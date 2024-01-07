@@ -9,7 +9,7 @@
 
 <body>
     <div style="background-color: #414141; color: aliceblue;">
-        <ul>
+        <ul id="images">
             <li>
                 <img width="200px" height="200px" id="wolf"
                     src="https://plus.unsplash.com/premium_photo-1661890071978-6c80f92c7fdf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -30,7 +30,7 @@
                     src="https://images.unsplash.com/photo-1702878650631-7033c64fcc01?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="tiger">
             </li>
-            <li><a style="color: aliceblue;" href="https://unsplash.com/">Unsplash</a></li>
+            <li><a style="color: aliceblue;" href="https://unsplash.com/" id="unsplash">Unsplash</a></li>
         </ul>
     </div>
 </body>
@@ -42,8 +42,26 @@
     // }
 
     // Method 2 by using addEventListener
-    document.getElementById('wolf').addEventListener('click', function () {
-        alert('Wolf is Hero.')
+    // document.getElementById('wolf').addEventListener('click', function (e) {
+    //     console.log("Wolf Clicked");
+    //     e.stopPropagation() // This is used to stop further running of script in bubbling
+    // }, false)
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY // Interview Specific
+    // altkey, ctrlkey, shiftkey, keycode
+
+    document.getElementById('unsplash').addEventListener('click', function (e) {
+        console.log("Clicked Unsplash");
+        e.preventDefault();
+    }, false)
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            let removeImage = e.target.parentNode;
+            removeImage.remove();
+        }
     })
 </script>
 
