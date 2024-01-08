@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on Events</title>
+</head>
+
+<body>
+    <h1>Naman Srivastav</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+
+    const sayAster = function () {
+        console.log("Aster");
+    }
+
+    const changeHead = function () {
+        document.querySelector('h1').innerHTML = "GL Bajaj"
+    }
+    const changeMe = setTimeout(changeHead, 5000);
+    setTimeout(sayAster, 5000);
+
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearTimeout(changeMe);
+        console.log("Stopped Interval");
+    })
+</script>
+
+</html>
