@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More on Events</title>
+</head>
+
+<body>
+    <h1>Naman Srivastav</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+
+    // SetInterval without parameter
+    // const sayDate = function () {
+    //     console.log("Naman", Date.now());
+    // }
+    // setInterval(sayDate, 2000)
+
+    // SetInterval with parameter
+    const sayDate = function (str) {
+        console.log(str, Date.now());
+    }
+    let inter_date = 0;
+    document.querySelector('#start').addEventListener('click', function () {
+        inter_date = setInterval(sayDate, 1000, "Srivastav")
+        console.log("Interval Started")
+    })
+
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearInterval(inter_date);
+        console.log("Interval Stopped");
+    })
+
+</script>
+
+</html>
